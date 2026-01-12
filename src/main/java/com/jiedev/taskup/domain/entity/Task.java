@@ -31,7 +31,7 @@ public class Task {
     private TaskStatus status;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "priority", nullable = false)
+    @Column(name = "priority")
     private TaskPriority priority;
 
     @Column(name = "created", updatable = false, nullable = false)

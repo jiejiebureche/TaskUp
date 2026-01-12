@@ -1,8 +1,10 @@
 package com.jiedev.taskup.mapper.impl;
 
 import com.jiedev.taskup.domain.CreateTaskRequest;
+import com.jiedev.taskup.domain.UpdateTaskRequest;
 import com.jiedev.taskup.domain.dto.CreateTaskRequestDTO;
 import com.jiedev.taskup.domain.dto.TaskDTO;
+import com.jiedev.taskup.domain.dto.UpdateTaskRequestDTO;
 import com.jiedev.taskup.domain.entity.Task;
 import com.jiedev.taskup.mapper.TaskMapper;
 import jakarta.persistence.Column;
@@ -29,6 +31,17 @@ public class TaskMapperImpl implements TaskMapper {
                 task.getDueDate(),
                 task.getPriority(),
                 task.getStatus()
+        );
+    }
+
+    @Override
+    public UpdateTaskRequest fromDTO(UpdateTaskRequestDTO dto) {
+        return new UpdateTaskRequest(
+                dto.title(),
+                dto.description(),
+                dto.dueDate(),
+                dto.status(),
+                dto.priority()
         );
     }
 }
